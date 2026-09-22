@@ -1,5 +1,5 @@
 # Ex5 Count Inversions in an Array
-## DATE: 26-11-2025
+## DATE: 07-08-2026
 ## AIM:
 To write a Java program  to Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < j
 
@@ -13,11 +13,11 @@ To write a Java program  to Count the number of inversions in an array where inv
 7. Stop the program.
 
 ## Program:
-```
+```java
 /*
 Program toto Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < j
-Developed by: Syed Abbu Rehan
-RegisterNumber:  212223240165
+Developed by: Mohamed Abrar M
+RegisterNumber:  212223040111
 */
 import java.util.Scanner;
 
@@ -25,16 +25,13 @@ public class CountInversions {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Input size
         int n = sc.nextInt();
         int[] arr = new int[n];
 
-        // Input array
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
 
-        // Count inversions
         long result = mergeSortAndCount(arr, 0, n - 1);
         System.out.println(result);
     }
@@ -45,31 +42,25 @@ public class CountInversions {
         if (left < right) {
             int mid = (left + right) / 2;
 
-            // Left subarray count
             count += mergeSortAndCount(arr, left, mid);
 
-            // Right subarray count
             count += mergeSortAndCount(arr, mid + 1, right);
 
-            // Merge count
             count += mergeAndCount(arr, left, mid, right);
         }
         return count;
     }
 
-    // Merge two sorted halves and count inversions
     private static long mergeAndCount(int[] arr, int left, int mid, int right) {
         int[] leftArr = new int[mid - left + 1];
         int[] rightArr = new int[right - mid];
 
-        // Copy data to temp arrays
         System.arraycopy(arr, left, leftArr, 0, leftArr.length);
         System.arraycopy(arr, mid + 1, rightArr, 0, rightArr.length);
 
         int i = 0, j = 0, k = left;
         long swaps = 0;
 
-        // Merge process
         while (i < leftArr.length && j < rightArr.length) {
             if (leftArr[i] <= rightArr[j]) {
                 arr[k++] = leftArr[i++];
@@ -79,7 +70,6 @@ public class CountInversions {
             }
         }
 
-        // Copy remaining elements
         while (i < leftArr.length) {
             arr[k++] = leftArr[i++];
         }
