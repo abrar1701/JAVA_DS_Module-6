@@ -5,7 +5,7 @@ To write a Java program to Count how many times a number appears in an array rec
 
 ## Algorithm:
 
-1. Read the array size, array elements, and the target value.
+1.Read the array size, array elements, and the target value.
 
 2.Call the recursive function countOccurrences(arr, n, target).
 
