@@ -13,7 +13,7 @@ To write a Java program  to Count the number of inversions in an array where inv
 7. Stop the program.
 
 ## Program:
-```
+```java
 /*
 Program toto Count the number of inversions in an array where inversion is defined as: arr[i] > arr[j] and i < j
 Developed by: Mohamed Abrar M
